@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>পুচু — একটি অদৃশ্য জাদুঘর</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0b0a08;
+    color: #eee8da;
+    font-family: 'Noto Serif Bengali', serif;
+    overflow-x: hidden;
+}
+
+/* ---------- GENERAL ---------- */
+
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px 22px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* ---------- INTRO ---------- */
+
+#entrance {
+    background:
+        radial-gradient(circle at center, rgba(170,130,65,.13), transparent 45%),
+        #0b0a08;
+}
+
+.museum-label {
+    letter-spacing: 5px;
+    font-size: 11px;
+    color: #b89a63;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: clamp(42px, 12vw, 82px);
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #aaa294;
+    font-size: 15px;
+    line-height: 2;
+    max-width: 500px;
+    margin: auto;
+}
+
+.enter-btn {
+    margin-top: 45px;
+    padding: 15px 34px;
+    border: 1px solid #a88a55;
+    background: transparent;
+    color: #d7c29b;
+    font-family: inherit;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.enter-btn:hover {
+    background: #a88a55;
+    color: #0b0a08;
+}
+
+/* ---------- MUSEUM ---------- */
+
+.museum-section {
+    background:
+        linear-gradient(rgba(11,10,8,.94), rgba(11,10,8,.97));
+}
+
+.room-number {
+    color: #a88a55;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.room-title {
+    font-size: clamp(30px, 8vw, 58px);
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.room-text {
+    color: #bdb5a7;
+    font-size: 16px;
+    line-height: 2.2;
+    max-width: 650px;
+    margin: auto;
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background: #8e7548;
+    margin: 35px auto;
+}
+
+.highlight {
+    color: #e0c895;
+    font-size: 25px;
+    margin: 25px 0;
+}
+
+/* ---------- PORTRAIT ---------- */
+
+.portrait-frame {
+    width: min(280px, 75vw);
+    height: min(360px, 95vw);
+    border: 10px solid #5d4b31;
+    outline: 2px solid #a88a55;
+    outline-offset: -18px;
+    margin: 0 auto 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #11100d;
+}
+
+.portrait-inner {
+    color: #665d50;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* ---------- CLOSED ROOM ---------- */
+
+.closed-room {
+    background: #080807;
+}
+
+.door {
+    width: min(260px, 72vw);
+    height: 430px;
+    background: linear-gradient(90deg, #20170f, #3a2a1a, #1d150e);
+    border: 3px solid #765d38;
+    box-shadow: 0 0 60px rgba(0,0,0,.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.door-text {
+    letter-spacing: 3px;
+    color: #b69a67;
+    font-size: 13px;
+}
+
+.door-sub {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #8e877c;
+}
+
+/* ---------- LETTER ---------- */
+
+.letter {
+    background: #e6ddc9;
+    color: #332b20;
+    max-width: 520px;
+    margin: auto;
+    padding: 45px 30px;
+    box-shadow: 0 15px 60px rgba(0,0,0,.5);
+}
+
+.letter-title {
+    font-family: Georgia, serif;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.letter p {
+    font-size: 16px;
+    line-height: 2.2;
+}
+
+/* ---------- FUTURE ---------- */
+
+.timeline {
+    margin: 40px auto;
+    max-width: 500px;
+}
+
+.year {
+    border-bottom: 1px solid #302a20;
+    padding: 18px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #777066;
+}
+
+.year span:first-child {
+    color: #b49a68;
+}
+
+/* ---------- PRAYER ---------- */
+
+.lamp {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 35px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #e6c77c 0%, #6c5128 35%, transparent 70%);
+    filter: blur(1px);
+    animation: glow 2.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { transform: scale(.95); opacity: .65; }
+    to { transform: scale(1.1); opacity: 1; }
+}
+
+/* ---------- FINAL ---------- */
+
+#final {
+    background: #050504;
+}
+
+.final-name {
+    font-size: clamp(40px, 12vw, 75px);
+    color: #e2c993;
+    margin-bottom: 25px;
+}
+
+.final-message {
+    font-size: 17px;
+    line-height: 2.3;
+    color: #bcb4a7;
+}
+
+.closed {
+    margin-top: 50px;
+    color: #6f6659;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+/* ---------- FADE ---------- */
+
+.fade {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:600px) {
+    .room-text {
+        font-size: 15px;
+    }
+
+    .letter {
+        padding: 35px 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- ENTRANCE -->
+<!-- ========================= -->
+
+<section id="entrance">
+    <div class="container fade">
+
+        <div class="museum-label">
+            A LITTLE DIGITAL MUSEUM
+        </div>
+
+        <h1 class="title">
+            একটি ছোট্ট জাদুঘর
+        </h1>
+
+        <p class="subtitle">
+            একজন মানুষের জন্য,<br>
+            যে জানে না—<br>
+            সে কারও স্মৃতিতে কতটা জায়গা নিয়ে আছে।
+        </p>
+
+        <button class="enter-btn"
+                onclick="document.getElementById('welcome').scrollIntoView()">
+            ENTER MUSEUM
+        </button>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- WELCOME -->
+<!-- ========================= -->
+
+<section id="welcome" class="museum-section">
+    <div class="container fade">
+
+        <div class="room-number">WELCOME</div>
+
+        <h2 class="room-title">
+            স্বাগতম
+        </h2>
+
+        <div class="divider"></div>
+
+        <p class="room-text">
+            এই জাদুঘরে কোনো ছবি নেই।
+            <br><br>
+            কারণ ছবিতে একজন মানুষকে দেখা যায়,
+            কিন্তু সবসময় বোঝা যায় না।
+            <br><br>
+            তাই এখানে ছবি নেই।
+            <br>
+            আছে কিছু সময়,
+            কিছু স্মৃতি,
+            কিছু নীরবতা।
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- ROOM 01 -->
+<!-- ========================= -->
+
+<section class="museum-section">
+    <div class="container fade">
+
+        <div class="room-number">
+            GALLERY 01
+        </div>
+
+        <h2 class="room-title">
+            যেদিন তুমি এসেছিলে
+        </h2>
+
+        <div class="divider"></div>
+
+        <p class="room-text">
+            ২৩ সেপ্টেম্বর ২০০৬।
+            <br><br>
+            পৃথিবী তার নিজের নিয়মে চলছিল।
+            মানুষ নিজের নিজের জীবনে ব্যস্ত ছিল।
+            খবরের কাগজ বের হয়েছিল,
+            বৃষ্টি হয়েছিল,
+            দিন পেরিয়ে রাত হয়েছিল।
+        </p>
+
+        <div class="highlight">
+            কিন্তু সেদিন আরও একটি ঘটনা ঘটেছিল।
+        </div>
+
+        <p class="room-text">
+            বাঁকুড়ার সুবর্ণতোড় গ্রামে
+            একটি ছোট্ট গল্প শুরু হয়েছিল।
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- ROOM 02 -->
+<!-- ========================= -->
+
+<section class="museum-section">
+    <div class="container fade">
+
+        <div class="room-number">
+            GALLERY 02
+        </div>
+
+        <h2 class="room-title">
+            একটি ছোট্ট মেয়ে
+        </h2>
+
+        <div class="divider"></div>
+
+        <p class="room-text">
+            একদিন এই ছোট্ট মেয়েটি বড় হবে।
+            <br><br>
+            তার পৃথিবী বদলাবে।
+            তার চারপাশ বদলাবে।
+            সময় বদলাবে।
+            <br><br>
+            কিন্তু তার ছোটবেলার
+            কিছু বাচ্চামি—
+            <br>
+            হয়তো কোনো এক মানুষের কাছে
+            সবচেয়ে সুন্দর স্মৃতিগুলোর একটি হয়ে থাকবে।
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- ROOM 03 -->
+<!-- ========================= -->
+
+<section class="museum-section">
+    <div class="container fade">
+
+        <div class="room-number">
+            GALLERY 03
+        </div>
+
+        <div class="portrait-frame">
+            <div class="portrait-inner">
+                PORTRAIT<br>
+                WITHOUT A PHOTOGRAPH
+            </div>
+        </div>
+
+        <h2 class="room-title">
+            ছবিহীন প্রতিকৃতি
+        </h2>
+
+        <p class="room-text">
+            কিছু মানুষকে ছবিতে রাখা যায়।
+            <br>
+            কিছু মানুষকে রাখা যায় না।
+        </p>
+
+        <div class="highlight">
+            হাসি।
+        </div>
+
+        <p class="room-text">
+            কারণ কিছু হাসির
+            কোনো photograph হয় না।
+            <br><br>
+            শুধু মনে থেকে যায়।
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- ROOM 04 -->
+<!-- ========================= -->
+
+<section class="closed-room">
+    <div class="container fade">
+
+        <div class="door">
+
+            <div class="door-text">
+                EXHIBIT CLOSED
+            </div>
+
+            <div class="door-sub">
+                কিছু দরজা খোলা আমার অধিকার নয়।
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- ROOM 05 -->
+<!-- ========================= -->
+
+<section class="museum-section">
+    <div class="container fade">
+
+        <div class="room-number">
+            GALLERY 05
+        </div>
+
+        <div class="letter">
+
+            <div class="letter-title">
+                UNSENT
+            </div>
+
+            <p>
+                কিছু কথা বলা হয়নি।
+                <br><br>
+                হয়তো বলার দরকারও নেই।
+                <br><br>
+                আজ শুধু জন্মদিন।
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- ROOM 06 -->
+<!-- ========================= -->
+
+<section class="museum-section">
+    <div class="container fade">
+
+        <div class="room-number">
+            GALLERY 06
+        </div>
+
+        <h2 class="room-title">
+            FUTURE ARCHIVE
+        </h2>
+
+        <p class="room-text">
+            আগামী দিনের ঘরগুলো
+            ইচ্ছা করেই খালি রাখা হয়েছে।
+        </p>
+
+        <div class="timeline">
+
+            <div class="year">
+                <span>2027</span>
+                <span>ARCHIVE EMPTY</span>
+            </div>
+
+            <div class="year">
+                <span>2028</span>
+                <span>ARCHIVE EMPTY</span>
+            </div>
+
+            <div class="year">
+                <span>2030</span>
+                <span>ARCHIVE EMPTY</span>
+            </div>
+
+            <div class="year">
+                <span>2035</span>
+                <span>ARCHIVE EMPTY</span>
+            </div>
+
+            <div class="year">
+                <span>2040</span>
+                <span>ARCHIVE EMPTY</span>
+            </div>
+
+        </div>
+
+        <p class="room-text">
+            কারণ ভবিষ্যৎ
+            আমার লেখার বিষয় নয়।
+            <br><br>
+            শুধু চাই—
+            <br>
+            সেই ঘরগুলো আলোয় ভরে উঠুক।
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- PRAYER -->
+<!-- ========================= -->
+
+<section class="museum-section">
+    <div class="container fade">
+
+        <div class="room-number">
+            GALLERY 07
+        </div>
+
+        <div class="lamp"></div>
+
+        <h2 class="room-title">
+            THE UNSEEN PRAYER
+        </h2>
+
+        <div class="divider"></div>
+
+        <p class="room-text">
+            কিছু প্রার্থনা
+            কাউকে শোনানোর জন্য করা হয় না।
+            <br><br>
+            কেউ জানুক বা না জানুক—
+            প্রার্থনা করা যায়।
+            <br><br>
+            এই বছরও শুধু একটি প্রার্থনা।
+        </p>
+
+        <div class="highlight">
+            ভালো থেকো।
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ========================= -->
+<!-- FINAL -->
+<!-- ========================= -->
+
+<section id="final">
+    <div class="container fade">
+
+        <div class="final-name">
+            পুচু
+        </div>
+
+        <p class="final-message">
+            শুভ জন্মদিন।
+            <br><br>
+            এই জাদুঘরের কোনো ticket price নেই।
+            <br>
+            কোনো reply প্রয়োজন নেই।
+            <br><br>
+            শুধু একবার ঘুরে গেলে
+            প্রদর্শনীটি সম্পূর্ণ হবে।
+        </p>
+
+        <div class="closed">
+            MUSEUM CLOSED
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+/* Fade-in animation */
+
+const elements = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+elements.forEach(element => {
+    observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
